@@ -1,2 +1,2 @@
 #!/bin/bash
-check code
+gcc -c $CFILE
