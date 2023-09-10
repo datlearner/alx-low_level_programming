@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
- * main - c program that runs
- * Returns: 0 (Successful)
+ * main - c program that prints exactly
+ * Return: 1 (Success)
  */
 int main(void)
 {
