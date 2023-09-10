@@ -5,12 +5,11 @@
  */
 int main(void)
 {
-char letter = 'a';
-while (letter <= 'z')
+int ch;
+for (ch = 'a'; ch <= 'z'; ch++)
 {
-printf("%c ", letter);
-letter++;
+putchar(ch);
 }
-printf("\n");
+putchar('\n');
 return (0);
 }
