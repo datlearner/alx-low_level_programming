@@ -1,10 +1,9 @@
-#include <stdio.h>
-#include <unistd.h>
 #include "main.h"
 /**
- * print_alphabet - check the code
- * description:  prints the alphabet
- * Return: Always 0 (Sucess)
+ * print_alphabet - Entry point
+ * description: a function that prints the alphabet
+ * in lowecase followed by a new line
+ * Return: Always 0 (Success)
  */
 void print_alphabet(void)
 {
