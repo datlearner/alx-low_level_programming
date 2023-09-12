@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <unistd.h>
 /**
- * main - function returning
+ * main - writes the function
  * Return: 0 (Success)
  */
 int main(void)
 {
-_putchar("_putchar");
+printf("hie");
 return (0);
 }
