@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include "main.h"
 /**
  * print_alphabet - check the code
  * description:  prints the alphabet
