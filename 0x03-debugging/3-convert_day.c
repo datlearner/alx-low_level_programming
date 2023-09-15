@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -8,7 +9,7 @@
 * Return: day of year
 */
 
-int convert_day(int month, int day)
+int main(int month, int day)
 {
 switch (month)
 {
