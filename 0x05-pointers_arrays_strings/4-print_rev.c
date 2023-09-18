@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 /**
  * print_rev - prints a string
@@ -6,11 +7,11 @@
  */
 void print_rev(char *s)
 {
-int i;
+int n;
 int count = 0;
-for (i = 0; s[i] != '\0'; i++)
+for (n = 0; s[n] != '\0'; n++)
 count++;
-for (i = count - 1; i >= 0; i--)
-_putchar(s[i]);
-_putchar('\n');
+for (n = count - 1; n >= 0; n--)
+putchar(s[n]);
+putchar('\n');
 }
