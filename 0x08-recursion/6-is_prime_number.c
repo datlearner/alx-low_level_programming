@@ -2,9 +2,10 @@
 #include "main.h"
 /**
  * is_prime_number - prime number
+ * prime - takes 2 integers
  * @n: number
  * @k: number
- * Return: 1 positive 0 negative
+ * Return: 1 n is prime number, 0 otherwie
  */
 int prime(int n, int k);
 int is_prime_number(int n)
@@ -23,6 +24,12 @@ return (0);
 }
 return (prime(n, 5));
 }
+/**
+ * prime - takes 2 integers
+ * @n: number
+ * @k: number
+ * Return: prime
+ */
 int prime(int n, int k)
 {
 if (k * k > n)
