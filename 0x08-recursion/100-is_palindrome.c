@@ -2,30 +2,24 @@
 #include "main.h"
 #include <string.h>
 /**
- * in_pali - return 1
- * @s: string
- * Return: one and zero
+ * wildcmp - comparison
+ * @s1: string one
+ * @s2: string two
+ * Return: zero otherwise
  */
-int is_palindrome(char *s);
-int in_pali(char *s, int x, int e)
+int wildcmp(char *s1, char *s2)
 {
-if (x >= e)
+if (*s2 == '\0')
 {
-return (1);
+return (*s1 == '\0');
 }
-if (s[x] != s[e])
+if (*s1 == *s2 || *s2 == '?')
 {
+return (wildcmp(s1 + 1, s2 + 1));
+}
+if (*s2 == '*')
+{
+return (wildcmp(s1, s2 + 1) || wildcmp(s1 + 1, s2));
+}
 return (0);
-}
-return (in_pali(s, x + 1, e - 1));
-}
-/**
- * is_palindrome - returns one
- * @s: string
- * Return: 1 and 0 if not
- */
-int is_palindrome(char *s)
-{
-int y = strlen(s);
-return (in_pali(s, 0, y - 1));
 }
