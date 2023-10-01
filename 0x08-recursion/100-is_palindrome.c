@@ -4,8 +4,6 @@
 /**
  * in_pali - return 1
  * @s: string
- * @x: int
- * @e: int
  * Return: one and zero
  */
 int is_palindrome(char *s);
