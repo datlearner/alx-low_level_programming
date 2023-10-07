@@ -3,6 +3,21 @@
 #include <string.h>
 #include "main.h"
 /**
+ * _strlen -  length
+ * @string: string
+ * Return: len
+ */
+int _strlen(char *string)
+{
+int v;
+v = 0;
+while (string[v] != '\0')
+{
+v++;
+}
+return (v);
+}
+/**
  * string_nconcat - concatenates
  * @s1: - string
  * @s2: string
@@ -11,14 +26,36 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-unsigned int k = (s1 == NULL) ? 0 : strlen(s1);
-unsigned int b = (s2 == NULL) ? 0 : strlen(s2);
-unsigned int i = k + ((n > b) ? b : n);
-char *r = malloc(i + 1);
-if (r == NULL)
+unsigned int k, x, o, i, j;
+char *str;
+if (s1 == NULL)
+s1 = "";
+if (s2 == NULL)
+s2 = "";
+k = _strlen(s1);
+x = _strlen(s2);
+if (n >= x)
+o = k + x + 1;
+else
+{
+o = k + n + 1;
+x = n;
+}
+str = malloc(o);
+if (str == NULL)
 return (NULL);
-if (s1 != NULL)
-strcpy(r, s1);
-strncat(r, s2, n);
-return (r);
+i = 0;
+while (i < k)
+{
+str[i] = s1[i];
+i++;
+}
+j = 0;
+while (j < x)
+{
+str[i + j] = s2[j];
+j++;
+}
+str[i + j] = '\0';
+return (str);
 }
