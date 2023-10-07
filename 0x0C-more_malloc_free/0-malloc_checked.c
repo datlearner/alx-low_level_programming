@@ -7,10 +7,9 @@
  */
 void *malloc_checked(unsigned int b)
 {
-void *point = malloc(b);
+char *point;
+point = malloc(b);
 if (point == NULL)
-{
 exit(98);
-}
 return (point);
 }
