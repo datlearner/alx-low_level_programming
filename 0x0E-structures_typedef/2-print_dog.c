@@ -5,7 +5,7 @@
  * @d: struct dog
  * Return: no return.
  */
-void print_dog(const struct dog *d)
+void print_dog(struct dog *d)
 {
 if (!d)
 {
