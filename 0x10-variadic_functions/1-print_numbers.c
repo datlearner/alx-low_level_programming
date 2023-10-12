@@ -15,7 +15,7 @@ va_start(valist, n);
 for (h = 0; h < n; h++)
 {
 printf("%d", va_arg(valist, int));
-if (separator || h < n - 1)
+if (separator && h < n - 1)
 {
 printf("%s", separator);
 }
