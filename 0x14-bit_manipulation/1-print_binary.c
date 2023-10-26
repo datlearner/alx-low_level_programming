@@ -6,11 +6,7 @@
  */
 void print_binary(unsigned long int n)
 {
-int i;
-int size = sizeof(unsigned long int) * 8;
-for (i = size - 1; i >= 0; i--)
-{
-unsigned long int mask = 1UL << i;
-_putchar(((n & mask) ? '1' : '0'));
-}
+if (n > 1)
+print_binary(n >> 1);
+_putchar((n & 1) + '0');
 }
