@@ -20,7 +20,7 @@ if (text_content)
 while (text_content[text_length])
 text_length++;
 wresult = write(fdescriptor, text_content, text_length);
-if (write_result != text_length)
+if (wresult != text_length)
 return (-1);
 }
 close(fdescriptor);
