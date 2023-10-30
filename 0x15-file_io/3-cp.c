@@ -1,48 +1,50 @@
 #include "main.h"
+
 /**
- * main - copies the content
+ * main - copies a file to another file
  * @argc: argumentc
  * @argv: argumentv
  * Return: Always 0 (Success)
  */
+
 int main(int argc, char *argv[])
 {
-int source_fd, dest_fd, bytes_read, close_source, close_dest;
-char buffer[BUFSIZ];
+int f, w, r, a, b;
+char buf[BUFSIZ];
 if (argc != 3)
 {
 dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 exit(97);
 }
-source_fd = open(argv[1], O_RDONLY);
-if (source_fd < 0)
+f = open(argv[1], O_RDONLY);
+if (f < 0)
 {
 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 exit(98);
 }
-dest_fd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-while ((bytes_read = read(source_fd, buffer, BUFSIZ)) > 0)
+w = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+while ((r = read(f, buf, BUFSIZ)) > 0)
 {
-if (dest_fd < 0 || write(dest_fd, buffer, bytes_read) != bytes_read)
+if (w < 0 || write(w, buf, r) != r)
 {
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-close(source_fd);
+close(f);
 exit(99);
 }
 }
-if (bytes_read < 0)
+if (r < 0)
 {
 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 exit(98);
 }
-close_source = close(source_fd);
-close_dest = close(dest_fd);
-if (close_source < 0 || close_dest < 0)
+a = close(f);
+b = close(w);
+if (a < 0 || b < 0)
 {
-if (close_source < 0)
-dprintf(STDERR_FILENO, "Error: Can't close source_fd %d\n", source_fd);
-if (close_dest < 0)
-dprintf(STDERR_FILENO, "Error: Can't close dest_fd %d\n", dest_fd);
+if (a < 0)
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f);
+if (b < 0)
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", w);
 exit(100);
 }
 return (0);
